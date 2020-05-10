@@ -1,5 +1,5 @@
 # InvoiceEditor
-TO Run this application.
+To Run this application.
 
 == run npm i to install packages
 
