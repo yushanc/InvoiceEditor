@@ -6,7 +6,9 @@ import {
   EDIT_ITEM,
 } from "../actions/types";
 
-export default (state = {}, action) => {
+const initialState = {}; //jest.js
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_ITEM:
       return { ...state, [action.payload.id]: action.payload };

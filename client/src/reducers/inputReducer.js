@@ -4,7 +4,9 @@ import {
   FETCH_ITEMS,
 } from "../actions/types";
 
-export default (state = {}, action) => {
+export const initialState = {};
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case CREATE_INVOICE:
       return { ...state, [action.payload.id]: action.payload };
