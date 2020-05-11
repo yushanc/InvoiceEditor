@@ -20,8 +20,20 @@ class InvoiceForm extends React.Component {
     this.state = { selectedId: 1, onChanged: false }
   }
 
-
-  // event handler
+  /*
+   ::event handler::
+   handleChange()
+     => getting calculated amount val through InvoiceForm state
+     => change name = amount input value for form submission ;
+     => update lineItems state for total/ subtotal calculation;
+   createNewLineItem()
+     => create new line item by pushing new object to lineItems state
+   deleteItem()
+     => delete object from lineItems state
+     => reset input values to zero
+   selectedLineItem()
+     => get selected input id and assign class to it
+*/
   handleChange(id, e) {
     clearTimeout(this.timeout);
     this.timeout = setTimeout(() => {
@@ -51,7 +63,11 @@ class InvoiceForm extends React.Component {
     this.props.onSubmit(formValues)
   }
 
-  // number Calculator
+  /*
+  ::number Calculator::
+  renderAmount() : Render calculated value
+  calAmount(): times two numbers
+*/
   renderAmount = (qty, price) => {
     let amount = 0
     if (this.props.inputs) {
@@ -69,7 +85,7 @@ class InvoiceForm extends React.Component {
     return amount
   }
 
-  // input element
+  // render input element style
   renderInput = ({ input, type }) => {
     let className = "three wide column";
 
@@ -87,6 +103,7 @@ class InvoiceForm extends React.Component {
     );
   }
 
+  // iterate lineItem states to render list Item
   itemList = () => {
     if (!this.props.lineItems) {
       return null

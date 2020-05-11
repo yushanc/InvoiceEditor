@@ -12,7 +12,6 @@ class CreateInvoice extends React.Component {
     if (this.props.invoice.length === 0) {
       return null
     } else {
-
       return (
         <div className="ui bottom attached warning message">
           <i className="save icon"></i>
