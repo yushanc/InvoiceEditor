@@ -60,7 +60,7 @@ class InvoiceForm extends React.Component {
   }
 
   onSubmit = (formValues) => {
-    this.props.onSubmit(formValues)
+    this.props.onSubmit(formValues);
   }
 
   /*
@@ -86,7 +86,7 @@ class InvoiceForm extends React.Component {
   }
 
   // render input element style
-  renderInput = ({ input, type }) => {
+  renderInput = ({ input, type, meta }) => {
     let className = "three wide column";
 
     if (type === "text") className = "seven wide column"
@@ -122,7 +122,6 @@ class InvoiceForm extends React.Component {
                     <div className="ui two column grid">
                       <Field name={`amount${id}`} type="hidden" component={this.renderInput} />
                       <div className="column"><h3>{this.renderAmount(`Qty${id}`, `price${id}`)}</h3></div >
-
                       <div className="column"><i className="trash icon" onClick={() => this.deleteItem(id)} /></div>
                     </div>
                   </div>
@@ -134,6 +133,7 @@ class InvoiceForm extends React.Component {
       )
     }
   }
+
 
   render() {
     return (
@@ -167,6 +167,7 @@ class InvoiceForm extends React.Component {
 }
 
 
+
 const mapStateToProps = (state) => {
   return {
     inputs: state.form.InvoiceForm,
@@ -176,7 +177,10 @@ const mapStateToProps = (state) => {
 
 
 const InvoiceFormWrapper = reduxForm(
-  { form: 'InvoiceForm' },
+  {
+    form: 'InvoiceForm'
+  },
+
 )(InvoiceForm)
 
 

@@ -9,6 +9,10 @@ const TotalSection = () => {
   let total = 0;
   let taxPrice = 0
 
+  /*
+   iterate lineItem states to calculate subtotal/ total based on fix tax rate
+*/
+
   if (lineItems) {
     subTotal = lineItems.reduce((total, item) => {
       return total + Number(item.amount)
